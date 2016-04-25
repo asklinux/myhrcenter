@@ -8,9 +8,7 @@
                 <div class="signin-row row">
                     <div class="span4"></div>
                     <div class="span8">
-                    	<center>
-                    		<img width="200px" align="center" src=""   />
-                    	</center>
+                    	<center><img width="200px" align="center" src="<?=base_url()?>/asset/images/DOSH.png"   /></center>
                     	
                         <div class="container-signin">
                             <legend>SISTEM KOMUNIKASI OPERASI PENGURUSAN </legend>

@@ -4,10 +4,6 @@
 </script>
 <script>
 
-	
-    
-    
-    
 	$(document).ready(function(){
 		
 		$("#tambah").click(function(){
@@ -123,10 +119,10 @@
 		
 	});
 </script>
-            
-			<div class="span14">
+         
+<div class="span14">
 				
-				<?php if ($admin == 1) { ?>
+				<?php //if ($admin == 1) { ?>
 <div class="well">
        <button class="btn " id="tambah"><i class="icon-user"></i> Tambah Pengguna</button>
         <button class="btn " id="adminm"><i class="icon-user"></i> Admin Module</button>
@@ -138,9 +134,9 @@
 
 </div>
 
-<div id="proses" class="box" style='display:none'>
+<div id="proses"  style='display:none'>
 		
-			<div id="prosesc" class="box-content">
+			<div id="prosesc" >
 			
 			</div>
 			
@@ -148,6 +144,6 @@
 </div>
 		
 
-<?php } ?>
+<?php //} ?>
 				
 			</div>

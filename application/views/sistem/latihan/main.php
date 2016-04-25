@@ -45,7 +45,7 @@
 			});
 		});
 		
-		<?php if ($admin != 0) { ?>
+		<?php if ($admin == 1) { ?>
 		$("#badmin").click(function() {
 			$("#status").hide();
 			$("#baru").hide();
@@ -112,7 +112,6 @@
 		});
 	}); 
 </script>
-
 <div class="row">
 	<div class="span16" align="center">
 		<div class="well well-small well-shadow">
@@ -142,12 +141,12 @@
 					<br/>
 					Panduan
 				</button>
-				<?php if ($admin != 0) { ?>
+				<?php if ($admin == 1) { ?>
 					<button id="badmin" class="btn btn-warning">
 					<i class="icon-briefcase icon-large"></i>
 					<br/>
 					Admin
-				</button>
+					</button>
 				
 				<?php } ?>
 			</div>
@@ -448,7 +447,7 @@
 		</div>
 		
 		<!--- admin -->
-		<?php if ($admin != 0) { ?>
+		<?php if ($admin == 1) { ?>
 			<div id="admin" class="box" style='display:none'>
 			<div class="box-header">
 				<i class="icon-inbox"></i>

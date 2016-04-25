@@ -84,7 +84,7 @@ class Panel extends CI_Controller {
 
 	public function padam($user = null) {
 
-		//$user = "";
+		//$user = "780717045303";
 		echo $this -> user -> delete($user);
 
 	}
@@ -544,9 +544,19 @@ class Panel extends CI_Controller {
 		$this->load->model('latihan');
 		$data['stat'] = $this->latihan->list_latihan($this->session->userdata['logged_in']['username'])->result();
 		$this->load->model('user');
-		$data['admin'] = $this->user->module_admin($this->session->userdata['logged_in']['username'],'latihan')->num_rows();
-		$data['admin_jenis'] = $this->user->module_admin($this->session->userdata['logged_in']['username'],'latihan')->row()->jenis;
+		$admin = $this->user->isadmin($this->session->userdata['logged_in']['username'],'latihan');
 		
+		$data['admin'] = $admin;
+		
+		/*
+		if ($admin == 1){
+		$data['admin_jenis'] = $this->user->module_admin($this->session->userdata['logged_in']['username'],'latihan')->row()->jenis;		
+		}
+		else {
+		$data['admin_jenis'] = 0;
+		}
+		 * 
+		 */
 		$data['latihan_jenis'] = $this->latihan->jenis_latihan();
 		$this -> load -> view('sistem/latihan/main', $data);
 		
@@ -729,7 +739,7 @@ class Panel extends CI_Controller {
 	}
 	
 	public function appcenter(){
-		//echo "test";
+		echo "test";
 	}
 	public function sadmin(){
 		
@@ -741,9 +751,8 @@ class Panel extends CI_Controller {
 		$this->load->model('latihan');
 		$data['stat'] = $this->latihan->list_latihan($this->session->userdata['logged_in']['username'])->result();
 		$this->load->model('user');
-		$data['admin'] = $this->user->module_admin($this->session->userdata['logged_in']['username'],'latihan')->num_rows();
-		
-			
+		//$data['admin'] = $this->user->module_admin($this->session->userdata['logged_in']['username'],'latihan')->num_rows();
+
 		$this -> load -> view('admin/main',$data);
 	}
 	

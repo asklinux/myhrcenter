@@ -62,23 +62,67 @@ class Admin extends CI_Controller {
 	}	
 	public function edit_user(){
 		
-		echo "edit";
+		$this->load->view('admin/edit_user');
 		
 	}	
 	
 	public function module_admin(){
 		
-		echo "admin";
+		$this->load->view('admin/module_admin');
 	}
 	public function cari_user(){
-		echo "cari";
+		$this->load->view('admin/cari_user');
 	}
 	public function laporan(){
-		echo "laporan";
+		$this->load->view('admin/laporan');
 	}
 	public function log(){
-		echo "log";
+		$this->load->view('admin/log');
 	}
+	public function user_simpan(){
+		
+		echo "simpan";
+	}
+	public function module_admin_add(){
+		
+		
+		//echo $this->input->post('mdi');
+		
+		$this->load->model('user');
+		
+		$data['senarai']  =  $this->user->module_admin(null,$this->input->post('mdi'))->result();
+		
+		
 	
+		$this->load->view("admin/module_admin_list",$data);
+	
+	}
+	public function module_admin_user(){
+		
+		$data['users'] = $this->ldap->cari_user($this->input->post('cari')); 
+		
+		$this->load->view('admin/module_admin_alluser',$data);
+	}
+	public function remove_moduleadmin(){
+		$id = $this->input->post('id');
+		
+		$this->load->model('user');
+		
+		$this->user->module_admin_delete($id);
+	}
+	public function add_moduleadmin(){
+		//echo $this->input->post('id');
+		
+		$data =  array (
+			'admin_username' => $this->input->post('id'),
+			'module' => $this->input->post('module'),
+			'jenis' => 0 
+		);
+		$this->load->model('user');
+		
+		echo $this->user->module_admin_add($data);
+		
+		
+	}
 }
 
